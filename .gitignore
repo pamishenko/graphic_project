@@ -4,3 +4,4 @@ minilibx_*
 *.pdf
 a.out
 .DS_Store
+*.a

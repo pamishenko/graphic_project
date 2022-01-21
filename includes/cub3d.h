@@ -6,18 +6,59 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 23:06:35 by ttanja            #+#    #+#             */
-/*   Updated: 2022/01/18 23:12:59 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/01/21 16:19:54 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
+#ifndef CUB3D_H
+# define CUB3D_H
 
-int	main(void)
+typedef struct s_player
 {
-	void	*mlx;
-	void	*mlx_win;
+	float	posx;
+	float	posy;
+	float	dirx;
+	float	diry;
+	float	planex;
+	float	planey;
+}t_player;
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
-	mlx_loop(mlx);
-}
+#define SCALE 16 // условный размер каждого квадратика в карте
+
+typedef struct	s_win //структура для окна
+{
+	void		*mlx;
+	void		*win;
+	void		*img;
+	void		*addr;
+	int			line_l;
+	int			bpp;
+	int			en;
+}				  t_win;
+
+typedef struct	s_point // структура для точки
+{
+	int			x;
+	int			y;
+}				  t_point;
+
+typedef struct	s_plr //структура для игрока и луча
+{
+	float		x;
+	float		y;
+	float		dir;
+	float		start;
+	float		end;
+}				  t_plr;
+
+typedef struct	s_all // структура для всего вместе
+{
+	t_win		*win;
+	t_plr		*plr;
+	char		**map;
+}				  t_all;
+
+char	**make_map(t_list **head, int size);
+void	parse_map(char **argv);
+
+#endif

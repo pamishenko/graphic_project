@@ -6,11 +6,11 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 23:16:18 by ttanja            #+#    #+#             */
-/*   Updated: 2021/10/13 11:25:16 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/01/21 16:08:37 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_get_next_line.h>
+#include <libft.h>
 
 size_t	ft_strlen_gnl(const char *str)
 {

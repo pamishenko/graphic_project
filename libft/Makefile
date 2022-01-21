@@ -6,7 +6,7 @@
 #    By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/02 09:37:51 by pavel             #+#    #+#              #
-#    Updated: 2021/10/13 11:21:14 by ttanja           ###   ########.fr        #
+#    Updated: 2022/01/21 16:10:28 by ttanja           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ DEPS	= ${SRC:.c=.d}
 
 HEADER	=	./includes/
 CC		=	gcc
-CFLAGS	=	-Wall -Werror -Wextra -I $(HEADER) -MMD -MP -v
+CFLAGS	=	-Wall -Werror -Wextra -I $(HEADER) -MMD -MP -g
 ARRC	=	ar rc
 REMOVE	=	rm -f
 RANLIB	=	ranlib

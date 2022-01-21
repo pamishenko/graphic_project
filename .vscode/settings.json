@@ -1,0 +1,10 @@
+{
+	"files.associations": {
+		"__config": "c",
+		"locale": "c",
+		"istream": "c",
+		"libft.h": "c",
+		"string.h": "c",
+		"ft_get_next_line.h": "c"
+	}
+}

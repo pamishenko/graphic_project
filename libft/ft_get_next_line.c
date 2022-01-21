@@ -6,11 +6,11 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 23:15:41 by ttanja            #+#    #+#             */
-/*   Updated: 2021/10/13 11:39:14 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/01/21 16:09:18 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_get_next_line.h>
+#include <libft.h>
 #include <stdio.h>
 
 char	*processing_eof(char *temp, char **line, char *buff)

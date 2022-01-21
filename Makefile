@@ -6,7 +6,7 @@
 #    By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/18 22:53:26 by ttanja            #+#    #+#              #
-#    Updated: 2022/01/19 18:51:53 by ttanja           ###   ########.fr        #
+#    Updated: 2022/01/20 21:05:04 by ttanja           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ HEADER_FILES	=	\
 					${HEADER_FOLDER}cub3d.h 
 
 SRC				=	\
+					./src/parsemap.c \
 					./src/cub3d.c 
 
 CC				=	gcc

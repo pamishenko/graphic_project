@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_next_line.h                                 :+:      :+:    :+:   */
+/*   initgame.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/01 20:27:43 by ttanja            #+#    #+#             */
-/*   Updated: 2021/10/13 11:32:23 by ttanja           ###   ########.fr       */
+/*   Created: 2022/01/20 19:12:11 by ttanja            #+#    #+#             */
+/*   Updated: 2022/01/20 19:18:28 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_GET_NEXT_LINE_H
-# define FT_GET_NEXT_LINE_H
-# define BUFFER_SIZE 10000
+#include <cub3d.h>
 
-# include <unistd.h>
-# include <stdlib.h>
-
-int		ft_get_next_line(int fd, char **line);
-size_t	ft_strlen_gnl(const char *s);
-char	*ft_strchr_gnl(const char *s, int c);
-size_t	ft_strlcpy_gnl(char *dst, const char *src, size_t dstsize);
-char	*ft_strjoin_gnl(char *s1, char const *s2);
-
-#endif
+t_player	init_player(void)
+{
+	t_player player;
+	
+	player.posx = 22;
+	player.posy = 12;
+	player.dirx = -1;
+	player.diry = 0;
+	player.planex = 0;
+	player.planey = 0.66;
+	
+	return (player);
+}

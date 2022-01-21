@@ -6,18 +6,18 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 15:54:37 by ttanja            #+#    #+#             */
-/*   Updated: 2021/10/13 11:10:11 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/01/21 16:08:13 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# define BUFFER_SIZE 10000
 
 # include <stddef.h>
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <ft_get_next_line.h>
 
 typedef struct s_list
 {
@@ -69,5 +69,10 @@ char	**ft_split(char const *s, char c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+int		ft_get_next_line(int fd, char **line);
+size_t	ft_strlen_gnl(const char *s);
+char	*ft_strchr_gnl(const char *s, int c);
+size_t	ft_strlcpy_gnl(char *dst, const char *src, size_t dstsize);
+char	*ft_strjoin_gnl(char *s1, char const *s2);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 19:12:07 by ttanja            #+#    #+#             */
-/*   Updated: 2022/01/21 16:28:21 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/01/21 18:40:36 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	**make_map(t_list **head, int size)
 	return (map);
 }
 
-void	parse_map(char **argv)
+char	**parse_map(char **argv)
 {
 	int		fd;
 	char	*line;
@@ -44,5 +44,5 @@ void	parse_map(char **argv)
 	while (ft_get_next_line(fd, &line))
 		ft_lstadd_back(&head, ft_lstnew(line));
 	ft_lstadd_back(&head, ft_lstnew(line));
-	make_map(&head, ft_lstsize(head));	
+	return (make_map(&head, ft_lstsize(head)));
 }

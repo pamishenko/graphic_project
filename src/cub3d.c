@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 23:10:53 by ttanja            #+#    #+#             */
-/*   Updated: 2022/01/21 16:20:30 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/01/21 21:19:34 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,100 @@ void	ft_cast_ray(t_all *all)
 	}
 }
 
+void	set_player(t_all *all)
+{
+	int x;
+	int y = 0;
+	while(all->map[y])
+	{
+		x = 0;
+		while (all->map[y][x])
+		{
+			if (all->map[y][x] == 'P')
+			{
+				all->plr->x = x;
+				all->plr->y = y;
+			}
+			x++;
+		}
+		y++;
+	}	
+}
+
+void	draw_map(t_all *all)
+{
+	int		x;
+	int		y =	0;
+	
+		while (all->map[y])
+	{
+		x = 0;
+		while (all->map[y][x])
+		{
+			if (all->map[y][x] == '1')
+				for (int i = 1; i <= 10; i++)
+					for (int j = 1; j <= 10; j++)
+						mlx_pixel_put(all->win->mlx, all->win->win, j + (x * 10), i + (y * 10), 0x00FFFF00);
+			x++;
+		}
+		y++;
+	}
+}
+
+
+
+void	draw_player(t_all *all)
+{
+	int		x;
+	int		y =	0;
+	
+		while (all->map[y])
+	{
+		x = 0;
+		while (all->map[y][x])
+		{
+			if (all->map[y][x] == '1')
+				for (int i = 1; i <= 10; i++)
+					for (int j = 1; j <= 10; j++)
+						mlx_pixel_put(all->win->mlx, all->win->win, j + (all->plr->x * 10), i + (all->plr->y * 10), 0x0000FFFA);
+			x++;
+		}
+		y++;
+	}
+}
+
+#include <stdio.h>
+int	move_minimap(int key, t_all *all)
+{
+	mlx_clear_window(all->win->mlx, all->win->win);
+	draw_map(all);
+	if(key == 13)
+		all->plr->y--;
+	else if(key == 1)
+		all->plr->y++;
+	else if(key == 0)
+		all->plr->x--;
+	else if(key == 2)
+		all->plr->x++;
+	draw_player(all);
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
-	// void	*mlx = NULL;
-	// t_all	all;
-	(void)argc;
-
-	parse_map(argv);	
-
-	// all.win->mlx = mlx_init();
-	// all.win->win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
-	// all.win->img = mlx_new_image(mlx, 1920, 1080);
-	// 			ft_cast_ray(&all);				
+	t_all	all;
 	
-	// mlx_loop(mlx);
+	(void)argc;
+	all.plr = calloc(sizeof(t_plr), 1);
+	all.win = calloc(sizeof(t_win), 1);
+	all.win->win = calloc(sizeof(void), 1);
+	all.win->mlx = calloc(sizeof(void), 1);
+	all.map = parse_map(argv);
+	set_player(&all);
+	all.win->mlx = mlx_init();
+	all.win->win = mlx_new_window(all.win->mlx, 1280, 720, "my Cub3D");	
+
+	draw_map(&all);
+	mlx_hook(all.win->win, 2, (1L << 0), &move_minimap, &all);
+	mlx_loop(all.win->mlx);	
 }

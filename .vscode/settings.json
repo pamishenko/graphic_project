@@ -5,6 +5,7 @@
 		"istream": "c",
 		"libft.h": "c",
 		"string.h": "c",
-		"ft_get_next_line.h": "c"
+		"ft_get_next_line.h": "c",
+		"__locale": "c"
 	}
 }

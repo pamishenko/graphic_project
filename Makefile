@@ -6,7 +6,7 @@
 #    By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/18 22:53:26 by ttanja            #+#    #+#              #
-#    Updated: 2022/01/20 21:05:04 by ttanja           ###   ########.fr        #
+#    Updated: 2022/01/21 17:40:56 by ttanja           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRC				=	\
 					./src/cub3d.c 
 
 CC				=	gcc
-CFLAGS			=	-Wall -Wextra -Werror
+CFLAGS			=	-Wall -Wextra -Werror -g
 
 RM				=	rm -f
 

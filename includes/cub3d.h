@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 23:06:35 by ttanja            #+#    #+#             */
-/*   Updated: 2022/01/21 16:19:54 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/01/21 18:40:52 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct	s_win //структура для окна
 	int			line_l;
 	int			bpp;
 	int			en;
-}				  t_win;
+}				      t_win;
 
 typedef struct	s_point // структура для точки
 {
@@ -59,6 +59,6 @@ typedef struct	s_all // структура для всего вместе
 }				  t_all;
 
 char	**make_map(t_list **head, int size);
-void	parse_map(char **argv);
+char	**parse_map(char **argv);
 
 #endif

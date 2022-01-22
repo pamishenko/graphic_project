@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 19:12:07 by ttanja            #+#    #+#             */
-/*   Updated: 2022/01/21 18:40:36 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/01/21 21:56:54 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ char	**make_map(t_list **head, int size)
 		map[++i] = tmp->content;
 		tmp= tmp->next;
 	}
-	i = -1;
-	while (map[++i])
-		ft_putendl_fd(map[i], 1);
+	// i = -1;
+	// while (map[++i])
+	// 	ft_putendl_fd(map[i], 1);
 	return (map);
 }
 

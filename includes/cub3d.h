@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 23:06:35 by ttanja            #+#    #+#             */
-/*   Updated: 2022/01/21 18:40:52 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/01/22 18:55:27 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_player
 	float	planey;
 }t_player;
 
-#define SCALE 16 // условный размер каждого квадратика в карте
+#define SCALE 4 // условный размер каждого квадратика в карте
 
 typedef struct	s_win //структура для окна
 {
@@ -60,5 +60,7 @@ typedef struct	s_all // структура для всего вместе
 
 char	**make_map(t_list **head, int size);
 char	**parse_map(char **argv);
+int	is_player(t_all *all, char ch);
+void	set_player(t_all *all);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 18:54:29 by ttanja            #+#    #+#             */
-/*   Updated: 2022/01/26 18:25:05 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/01/26 23:17:17 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ int	set_player(t_all *all)
 	all->plr->start = all->plr->dir - M_PI_4;
 	all->plr->end = all->plr->dir + M_PI_4;
 	all->plr->realAngle = 0;
-	all->plr->speed = 0.5;
+	all->plr->speed = 1;
+	all->plr->rotSpeed = 5;
 	while(all->map[y])
 	{
 		x = 0;

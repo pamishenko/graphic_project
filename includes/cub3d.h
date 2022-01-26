@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 23:06:35 by ttanja            #+#    #+#             */
-/*   Updated: 2022/01/26 18:21:26 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/01/26 23:30:05 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@
 # define LEFT 123
 # define RIGHT 124
 
-#define MAP_SIZE 4 // условный размер каждого квадратика в карте
+#define MAP_SIZE 128 // условный размер каждого квадратика в карте
 
 #include <libft.h>
 
@@ -58,7 +58,7 @@ typedef struct	s_win //структура для окна
 	void			*mlx;
 	void			*win;
 	void			*img;
-	void			*addr;
+	void			*addr; 
 	int				line_l;
 	int				bpp;
 	int				en;

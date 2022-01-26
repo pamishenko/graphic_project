@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 23:51:17 by ttanja            #+#    #+#             */
-/*   Updated: 2022/01/26 16:38:01 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/01/26 23:18:55 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ void	draw_mini_map(t_all *all)
 			if (all->map[y][x] == '1')
 			{
 				i = 0;
-				while (++i <= MAP_SIZE)
+				while (++i <= 4)
 				{
 					j = 0;
-					while (++j <= MAP_SIZE)
+					while (++j <= 4)
 							mlx_pixel_put(all->win->mlx, all->win->win,
-									j + (x * MAP_SIZE), i + (y * MAP_SIZE), 0x00FFFF00);
+									j + (x * 4), i + (y * 4), 0x00FFFF00);
 				}
 			}
 			x++;

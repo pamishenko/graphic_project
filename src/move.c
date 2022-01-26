@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 16:11:41 by ttanja            #+#    #+#             */
-/*   Updated: 2022/01/26 19:44:32 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/01/26 23:16:52 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ int	move(int key, t_all *all)
 		all->plr->curent_position.x -= sin(all->plr->dir * M_PI_2) * all->plr->speed * 0.8;
 	}
 	else if(key == LEFT && !check_wall(all, -1, 0))
-		all->plr->dir += 0.05;
+		all->plr->dir += 0.05 * all->plr->rotSpeed;
 	else if(key == RIGHT && !check_wall(all, 1, 0))
-		all->plr->dir -= 0.05;
+		all->plr->dir -= 0.05 * all->plr->rotSpeed;
 	else if (key == ESC)
 	{
 		mlx_destroy_window(all->win->mlx, all->win->win);

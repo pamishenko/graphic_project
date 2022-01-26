@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 18:54:29 by ttanja            #+#    #+#             */
-/*   Updated: 2022/01/22 18:55:21 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/01/26 18:25:05 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,16 @@ int	is_player(t_all *all, char ch)
 	return (0); 
 }
 
-void	set_player(t_all *all)
+int	set_player(t_all *all)
 {
 	int x;
-	int y = 0;
+	int y;
+	
+	y = 0;
+	all->plr->start = all->plr->dir - M_PI_4;
+	all->plr->end = all->plr->dir + M_PI_4;
+	all->plr->realAngle = 0;
+	all->plr->speed = 0.5;
 	while(all->map[y])
 	{
 		x = 0;
@@ -57,15 +63,13 @@ void	set_player(t_all *all)
 		{
 			if (is_player(all, all->map[y][x]))
 			{
-				all->plr->x = x;
-				all->plr->y = y;
-				break;
+				all->plr->curent_position.x = x;
+				all->plr->curent_position.y = y;
+				return (0);
 			}
 			x++;
 		}
 		y++;
 	}
-	all->plr->start = all->plr->dir - M_PI_4;
-	all->plr->end = all->plr->dir + M_PI_4;
-
+		return (21);
 }

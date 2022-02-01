@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 23:06:35 by ttanja            #+#    #+#             */
-/*   Updated: 2022/01/26 23:30:05 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/02/02 00:10:07 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@
 #define YELLOW_TXT  "\033[1;33m"
 #define WHITE_TXT   "\033[1;37m"
 
-#define HEIGHT 640
-#define WIDTH 480
+#define HEIGHT 1024
+#define WIDTH 520
 
 # define ESC 53
 # define W 13
@@ -45,13 +45,49 @@
 
 #include <libft.h>
 
+typedef struct s_position
+{
+	float x;
+	float y;
+} t_position;
+
+
+typedef struct	s_plr //структура для игрока и луча
+{
+	t_position	position;
+	t_position	delta_position;
+	float		dir;
+	float		start;
+	float		end;
+	int			realAngle;
+	int			fakeAngle;
+	float		speed;
+	float		rotSpeed;
+}				  t_plr;
+
+typedef struct s_block
+{
+	int	x;
+	int	y;
+	char *n_wall;
+	char *s_wall;
+	char *e_wall;
+	char *w_wall;
+} t_block;
+
+typedef struct s_map
+{
+	int	x;
+	int	y;
+	char *map;
+} t_map;
+
 typedef struct s_resolution
 {
 	int	width;
 	int	height;
 	int	fps;
 } t_resolution;
-
 
 typedef struct	s_win //структура для окна
 {
@@ -65,60 +101,36 @@ typedef struct	s_win //структура для окна
 	t_resolution	resolution;
 }	t_win;
 
-typedef struct	s_point // структура для точки
-{
-	int			x;
-	int			y;
-}				  t_point;
-
-typedef struct s_position
-{
-	float x;
-	float y;
-} t_position;
-
-
-typedef struct	s_plr //структура для игрока и луча
-{
-	t_position	curent_position;
-	t_position	delta_position;
-	float		dir;
-	float		start;
-	float		end;
-	int			realAngle;
-	int			fakeAngle;
-	float			speed;
-	float			rotSpeed;
-}				  t_plr;
-
-typedef struct s_block
-{
-	int	x;
-	int	y;
-	char *n_wall;
-	char *s_wall;
-	char *e_wall;
-	char *w_wall;
-} t_block;
-
 typedef struct	s_all // структура для всего вместе
 {
-	t_win		*win; 
-	t_plr		*plr;
-	char		**map;
-}				  t_all;
+	t_win			*win; 
+	t_plr			*plr;
+	t_map			*mapa;
+	t_resolution	resolution;
+}		t_all;
+
+
 
 t_all	*init_game(char **argv);
 int		destroy_game(t_all *all, int exit_code);
-char	**make_map(t_list **head, int size);
-char	**parse_map(char **argv);
+char	*make_map(t_list **head, int size);
 int		is_player(t_all *all, char ch);
 int		set_player(t_all *all);
-void	draw_mini_map(t_all *all);
 void	printerror(int code);
-int		move(int key, t_all *all);
+int		buttons(int key, t_all *all);
 int		check_map(char **map);
-void	ft_cast_rays(t_all *all);
-int check_wall(t_all *all, int x, int y);
+int		check_wall(t_all *all, int x, int y);
+
+void draw_map_2d(t_all *all);
+void	draw_player_on_minimap(t_all *all);
+
+void	redisplay(t_all *all);
+
+
+void	set_size_map(char **argv, t_map *map);
+void	set_map(int i, int j, char *line, t_map *mapa);
+t_map	*parser_map(char **argv);
+void ft_mlx_pixel_put(void *mlx, void *win, int x, int y, int color);
+
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 23:51:17 by ttanja            #+#    #+#             */
-/*   Updated: 2022/01/26 23:18:55 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/02/02 00:09:36 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,32 +17,23 @@
 #include <cub3d.h>
 #include <mlx.h>
 
-void	draw_mini_map(t_all *all)
+void draw_map_2d(t_all *all)
 {
-	int	x;
-	int	y;
-	int	i;
-	int j;
+	t_map	*map;
+	int		i;
 	
-	y = 0;
-	while (all->map[y])
+	map = all->mapa;
+	i = -1;
+	while (map->map[++i])
 	{
-		x = 0;
-		while (all->map[y][x])
-		{
-			if (all->map[y][x] == '1')
-			{
-				i = 0;
-				while (++i <= 4)
-				{
-					j = 0;
-					while (++j <= 4)
-							mlx_pixel_put(all->win->mlx, all->win->win,
-									j + (x * 4), i + (y * 4), 0x00FFFF00);
-				}
-			}
-			x++;
-		}
-		y++;
+		if (map->map[i] == '1')
+			ft_mlx_pixel_put(all->win->mlx, all->win->win, i % map->x,
+				i / map->x, WHITE);
 	}
+}
+
+void	draw_player_on_minimap(t_all *all)
+{
+	ft_mlx_pixel_put(all->win->mlx, all->win->win, all->plr->position.x,
+			all->plr->position.y, RED);
 }

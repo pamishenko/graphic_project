@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 17:15:06 by ttanja            #+#    #+#             */
-/*   Updated: 2022/01/26 23:39:26 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/02/02 00:09:59 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,46 +19,25 @@
 #include <cub3d.h>
 
 
-
-
-float	get_len(t_position start_position, t_position wal_position)
+void	redisplay(t_all *all)
 {
-	float result;
-
-	result = sqrt((start_position.x - wal_position.x)*(start_position.x
-				- wal_position.x) + (start_position.y - wal_position.y)
-				* (start_position.y - wal_position.y));
-			printf("%f\n", result);
-	return (result);
+	mlx_clear_window(all->win->mlx, all->win->win);
+	draw_map_2d(all);
+	draw_player_on_minimap(all);
 }
 
-void print_wall(t_all *all, float x, float c)
+void ft_mlx_pixel_put(void *mlx, void *win, int x, int y, int color)
 {
-	for (int y = (WIDTH - (WIDTH / c)) / 2; y < ((WIDTH - (WIDTH / c)) / 2 + (WIDTH / c)); y++)
-		mlx_pixel_put(all->win->mlx, all->win->win, HEIGHT - (int)x, y, 0x00FF0000 + (0xFF000000 - (0xFF000000<<(int)c/6)));
-	
-}
+	int i;
+	int j;
+	int minimap_size;
 
-void	ft_cast_rays(t_all *all)
-{
-	t_plr	ray = *all->plr; // задаем координаты и направление луча равные координатам игрока
-	ray.start = ray.dir - M_PI_4; // начало веера лучей
-	ray.end = ray.dir + M_PI_4; // край веера лучей
-	int i = 0;
-  while (ray.start <= ray.end)
+	i = 0;
+	minimap_size = 5;
+	while (++i <=  minimap_size)
 	{
-		if (i == HEIGHT +1)
-			i++;
-		i++;
-		ray.curent_position.x = all->plr->curent_position.x; // каждый раз возвращаемся в точку начала
-		ray.curent_position.y = all->plr->curent_position.y;
-		while (all->map[(int)(ray.curent_position.y)][(int)(ray.curent_position.x)] != '1')
-		{
-			ray.curent_position.x +=  (sin(ray.start) / MAP_SIZE);
-			ray.curent_position.y +=  (cos(ray.start) / MAP_SIZE);
-			// mlx_pixel_put(all->win->mlx, all->win->win, (int)(ray.curent_position.x * 4), (int)(ray.curent_position.y * 4), 0x00990099);
-		}
-		print_wall(all, i, get_len(all->plr->curent_position, ray.curent_position));
-		ray.start += M_PI_2 / HEIGHT;
+		j = 0;
+		while (++j <=  minimap_size)
+			mlx_pixel_put(mlx, win, x * minimap_size + j, y * minimap_size + i, color);
 	}
 }

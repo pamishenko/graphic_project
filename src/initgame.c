@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 19:12:11 by ttanja            #+#    #+#             */
-/*   Updated: 2022/01/26 17:12:21 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/02/01 23:45:16 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ t_all *init_game(char **argv)
 	all->win = ft_calloc(sizeof(t_win), 1);
 	all->win->win = ft_calloc(sizeof(void), 1);
 	all->win->mlx = ft_calloc(sizeof(void), 1);
-	all->map = parse_map(argv);
-	set_player(all);
 	all->win->mlx = mlx_init();
 	all->win->win = mlx_new_window(all->win->mlx, HEIGHT, WIDTH, "my Cub3D");	
 	return (all);

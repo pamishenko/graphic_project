@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 18:54:29 by ttanja            #+#    #+#             */
-/*   Updated: 2022/01/26 23:17:17 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/02/01 23:51:28 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,29 +48,26 @@ int	is_player(t_all *all, char ch)
 
 int	set_player(t_all *all)
 {
-	int x;
-	int y;
-	
-	y = 0;
+	int	i;
+	int	result;
+
+	i = 0;
+	result = 21;
+	// В этом месте нужно сделать чекер на то что на карте есть игрок и он один
 	all->plr->start = all->plr->dir - M_PI_4;
 	all->plr->end = all->plr->dir + M_PI_4;
 	all->plr->realAngle = 0;
 	all->plr->speed = 1;
 	all->plr->rotSpeed = 5;
-	while(all->map[y])
+	while (i < all->mapa->x * all->mapa->y && !(result = is_player(all, all->mapa->map[i])))
+		i++;
+	if (result)
 	{
-		x = 0;
-		while (all->map[y][x])
-		{
-			if (is_player(all, all->map[y][x]))
-			{
-				all->plr->curent_position.x = x;
-				all->plr->curent_position.y = y;
-				return (0);
-			}
-			x++;
-		}
-		y++;
+		all->plr->position.x = i % all->mapa->x;
+		all->plr->position.y = i / all->mapa->x;
+		result = 0;
 	}
-		return (21);
+	else
+		result = 21;
+	return (result);
 }

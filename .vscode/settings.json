@@ -12,6 +12,16 @@
 		"cmath": "cpp",
 		"mlx.h": "c",
 		"math.h": "c",
-		"complex": "c"
+		"complex": "c",
+		"__string": "c",
+		"exception": "c",
+		"functional": "c",
+		"memory": "c",
+		"new": "c",
+		"ostream": "c",
+		"string": "c",
+		"utility": "c",
+		"allocator": "c",
+		"*.tcc": "c"
 	}
 }

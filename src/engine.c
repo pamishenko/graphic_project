@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 17:15:06 by ttanja            #+#    #+#             */
-/*   Updated: 2022/02/02 00:09:59 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/02/04 23:25:51 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,30 @@ void	redisplay(t_all *all)
 	draw_player_on_minimap(all);
 }
 
-void ft_mlx_pixel_put(void *mlx, void *win, int x, int y, int color)
+void ft_mlx_pixel_put(void *mlx, void *win, int x, int y, int color, int s)
 {
 	int i;
 	int j;
-	int minimap_size;
 
 	i = 0;
-	minimap_size = 5;
-	while (++i <=  minimap_size)
+	while (++i <=  s)
 	{
 		j = 0;
-		while (++j <=  minimap_size)
-			mlx_pixel_put(mlx, win, x * minimap_size + j, y * minimap_size + i, color);
+		while (++j <=  s)
+			mlx_pixel_put(mlx, win, x * s + j, y * s + i, color);
+	}
+}
+
+void ft_mlx_pixel_put_pl(void *mlx, void *win, int x, int y, int s, int m)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (++i <=  s)
+	{
+		j = 0;
+		while (++j <=  s)
+			mlx_pixel_put(mlx, win, x * m + j + (m / 2), y * m + i + (m / 2), RED);
 	}
 }

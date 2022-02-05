@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 23:06:35 by ttanja            #+#    #+#             */
-/*   Updated: 2022/02/02 00:10:07 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/02/05 12:27:16 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,22 +40,19 @@
 # define DOWN 125
 # define LEFT 123
 # define RIGHT 124
+#define	BLOCK_SIZE 50
+#define PLAYER_SIZE 5
 
 #define MAP_SIZE 128 // условный размер каждого квадратика в карте
 
 #include <libft.h>
 
-typedef struct s_position
-{
-	float x;
-	float y;
-} t_position;
-
-
 typedef struct	s_plr //структура для игрока и луча
 {
-	t_position	position;
-	t_position	delta_position;
+	int			px;
+	int			py;
+	float			dpx;
+	float			dpy;
 	float		dir;
 	float		start;
 	float		end;
@@ -96,9 +93,6 @@ typedef struct	s_win //структура для окна
 	void			*img;
 	void			*addr; 
 	int				line_l;
-	int				bpp;
-	int				en;
-	t_resolution	resolution;
 }	t_win;
 
 typedef struct	s_all // структура для всего вместе
@@ -106,7 +100,7 @@ typedef struct	s_all // структура для всего вместе
 	t_win			*win; 
 	t_plr			*plr;
 	t_map			*mapa;
-	t_resolution	resolution;
+	t_resolution	*resolution;
 }		t_all;
 
 
@@ -129,8 +123,8 @@ void	redisplay(t_all *all);
 
 void	set_size_map(char **argv, t_map *map);
 void	set_map(int i, int j, char *line, t_map *mapa);
-t_map	*parser_map(char **argv);
-void ft_mlx_pixel_put(void *mlx, void *win, int x, int y, int color);
-
+t_map *parser_map(char **argv, t_map	*mapa);
+void ft_mlx_pixel_put(void *mlx, void *win, int x, int y, int color, int s);
+void ft_mlx_pixel_put_pl(void *mlx, void *win, int x, int y, int s, int m);
 
 #endif

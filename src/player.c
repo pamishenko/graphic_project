@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 18:54:29 by ttanja            #+#    #+#             */
-/*   Updated: 2022/02/01 23:51:28 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/02/05 13:04:33 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include <math.h>
 #include <fcntl.h>
 #include <libft.h>
-
 #include <cub3d.h>
 
 
@@ -54,17 +53,18 @@ int	set_player(t_all *all)
 	i = 0;
 	result = 21;
 	// В этом месте нужно сделать чекер на то что на карте есть игрок и он один
-	all->plr->start = all->plr->dir - M_PI_4;
-	all->plr->end = all->plr->dir + M_PI_4;
 	all->plr->realAngle = 0;
 	all->plr->speed = 1;
 	all->plr->rotSpeed = 5;
 	while (i < all->mapa->x * all->mapa->y && !(result = is_player(all, all->mapa->map[i])))
 		i++;
+	all->plr->start = all->plr->dir - M_PI_4;
+	all->plr->end = all->plr->dir + M_PI_4;
+
 	if (result)
 	{
-		all->plr->position.x = i % all->mapa->x;
-		all->plr->position.y = i / all->mapa->x;
+		all->plr->px = (i % (all->mapa->x) * BLOCK_SIZE + BLOCK_SIZE  / 2  + PLAYER_SIZE / 2);
+		all->plr->py = (i / (all->mapa->x) * BLOCK_SIZE + BLOCK_SIZE  / 2  + PLAYER_SIZE / 2);
 		result = 0;
 	}
 	else

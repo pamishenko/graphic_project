@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 19:12:11 by ttanja            #+#    #+#             */
-/*   Updated: 2022/02/01 23:45:16 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/02/05 19:22:14 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ t_all *init_game(char **argv)
 	all = ft_calloc(sizeof(t_all), 1);
 	all->plr = ft_calloc(sizeof(t_plr), 1);
 	all->win = ft_calloc(sizeof(t_win), 1);
+	all->mapa = ft_calloc(sizeof(t_map), 1);
+	parser_map(argv, all->mapa);
 	all->win->win = ft_calloc(sizeof(void), 1);
 	all->win->mlx = ft_calloc(sizeof(void), 1);
 	all->win->mlx = mlx_init();

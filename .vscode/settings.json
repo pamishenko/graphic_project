@@ -22,6 +22,7 @@
 		"string": "c",
 		"utility": "c",
 		"allocator": "c",
-		"*.tcc": "c"
+		"*.tcc": "c",
+		"stdio.h": "c"
 	}
 }

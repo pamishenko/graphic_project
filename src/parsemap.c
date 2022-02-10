@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 19:12:07 by ttanja            #+#    #+#             */
-/*   Updated: 2022/02/04 22:54:00 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/02/06 11:02:42 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	set_size_map(char **argv, t_map *map)
 	if (line)
 		free(line);
 	close(fd);
+	map->size = map->x * map->y;
 }
 
 void set_map(int i, int j, char *line, t_map *mapa)

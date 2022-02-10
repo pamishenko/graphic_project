@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 23:06:35 by ttanja            #+#    #+#             */
-/*   Updated: 2022/02/05 12:27:16 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/02/09 22:52:52 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@
 # define DOWN 125
 # define LEFT 123
 # define RIGHT 124
-#define	BLOCK_SIZE 50
+#define	BLOCK_SIZE 8
 #define PLAYER_SIZE 5
 
-#define MAP_SIZE 128 // условный размер каждого квадратика в карте
+#define MAP_SIZE 64 // условный размер каждого квадратика в карте
 
 #include <libft.h>
 
@@ -74,9 +74,10 @@ typedef struct s_block
 
 typedef struct s_map
 {
-	int	x;
-	int	y;
-	char *map;
+	int		x;
+	int		y;
+	int		size;
+	char	*map;
 } t_map;
 
 typedef struct s_resolution
@@ -125,6 +126,7 @@ void	set_size_map(char **argv, t_map *map);
 void	set_map(int i, int j, char *line, t_map *mapa);
 t_map *parser_map(char **argv, t_map	*mapa);
 void ft_mlx_pixel_put(void *mlx, void *win, int x, int y, int color, int s);
-void ft_mlx_pixel_put_pl(void *mlx, void *win, int x, int y, int s, int m);
+void ft_mlx_pixel_put_pl(void *mlx, void *win, int x, int y, int s);
+void draw_rays_3d(t_all *all);
 
 #endif

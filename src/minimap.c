@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 23:51:17 by ttanja            #+#    #+#             */
-/*   Updated: 2022/02/11 20:43:24 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/02/12 00:05:20 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <libft.h>
 #include <cub3d.h>
 #include <mlx.h>
+#include <math.h>
 
 void draw_map_2d(t_all *all)
 {
@@ -37,13 +38,25 @@ void draw_map_2d(t_all *all)
 
 void	draw_player_on_minimap(t_all *all)
 {
+	t_plr ray;
+
+	ray = *all->plr;
+	ray.start = ray.dir - M_PI_2 ;
+	ray.end = ray.dir + M_PI_2;	
 	ft_mlx_pixel_put_pl(all->win->mlx, all->win->win, all->plr->px - PLAYER_SIZE + PLAYER_SIZE % 2,
 			all->plr->py, PLAYER_SIZE);
-	for (int i = 0; i < 300; i++)
+	
+	int i = 10;
+	while (ray.start <= ray.end)
 	{
-		if (all->mapa->map[(all->mapa->size % (((int)(all->plr->px + all->plr->dpx * i))/ BLOCK_SIZE))  + (all->mapa->x / (((int)(all->plr->py + all->plr->dpy * i))/ BLOCK_SIZE))] == '1')
-			break; 
-		mlx_pixel_put(all->win->mlx, all->win->win, all->plr->px + all->plr->dpx * i,
-			all->plr->py + all->plr->dpy * i, YELLOW);
+		ray.px = all->plr->px;
+		ray.py = all->plr->py;
+		while (all->mapa->map[(all->mapa->x * ((int)ray.py / BLOCK_SIZE)) + ((int)ray.px/ BLOCK_SIZE)] != '1')
+		{
+			ray.px += cos(ray.start);
+			ray.py += sin(ray.start);
+			mlx_pixel_put(all->win->mlx, all->win->win, ray.px, ray.py, GREEN + i++);
+		}
+		ray.start += M_PI_2 / 6;
 	}
 }

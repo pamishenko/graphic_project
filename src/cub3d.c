@@ -19,15 +19,16 @@
 #include <cub3d.h>
 
 void draw_rays_3d(t_all *all){
-	t_plr	ray = *all->plr; // задаем координаты луча равные координатам игрока
+	// t_plr	ray = *all->plr; // задаем координаты луча равные координатам игрока
 
-	(void)ray;
-	while (all->mapa->map[all->mapa->size / ((int)(ray.py + ray.dpy)) /MAP_SIZE + (((int)(ray.px + ray.dpx)) /MAP_SIZE)]!= '1')
-	{
-		ray.dpx += cos(ray.dir);
-		ray.dpy += sin(ray.dir);
-		mlx_pixel_put(all->win->mlx, all->win->win, ray.px + ray.dpx, ray.py + ray.dpy, 0x990099);
-	}
+	// (void)ray;
+	// while (all->mapa->map[all->mapa->size / ((int)(ray.py + ray.dpy)) /MAP_SIZE + (((int)(ray.px + ray.dpx)) /MAP_SIZE)]!= '1')
+	// {
+	// 	ray.dpx += cos(ray.dir);
+	// 	ray.dpy += sin(ray.dir);
+	// 	mlx_pixel_put(all->win->mlx, all->win->win, ray.px + ray.dpx, ray.py + ray.dpy, BLUE);
+	// }
+	(void)all;
 }
 
 void draw_rays_3d_2(t_all *all)
@@ -89,7 +90,6 @@ int	main(int argc, char **argv){
 	set_player(all);
 	draw_map_2d(all);
 	draw_player_on_minimap(all);
-	draw_rays_3d(all);
 	mlx_hook(all->win->win, 2, (1L << 0), &buttons, all);
 	mlx_loop(all->win->mlx);
 }

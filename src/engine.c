@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 17:15:06 by ttanja            #+#    #+#             */
-/*   Updated: 2022/02/05 22:51:51 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/02/11 21:06:54 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	redisplay(t_all *all)
 	mlx_clear_window(all->win->mlx, all->win->win);
 	draw_map_2d(all);
 	draw_player_on_minimap(all);
-	draw_rays_3d(all);
 }
 
 void ft_mlx_pixel_put(void *mlx, void *win, int x, int y, int color, int s)

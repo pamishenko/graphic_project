@@ -23,9 +23,9 @@
 
 int	is_wall(int px, int py, t_all *all)
 {
-	if (all->mapa->map[all->mapa->size / py/MAP_SIZE + px/MAP_SIZE] == '1')	
+	if (all->mapa->map[all->mapa->x * py/MAP_SIZE + px/MAP_SIZE] == '1')	
 		return (1);
-	return (0);
+	return (1);
 }
 
 t_plr *pl;
@@ -33,11 +33,18 @@ t_plr *pl;
 int	buttons(int key, t_all *all)
 {
 	pl = all->plr;
-	if (key == A) {pl->dir -= 0.1; if (pl->dir < 0){pl->dir+=2*M_PI;} pl->dpx = cos(pl->dir); pl->dpy = sin(pl->dir);}
+	if (key == A) {
+		pl->dir -= 0.1;
+		if (pl->dir < 0){
+			pl->dir+=2*M_PI;
+			}
+		pl->dpx = cos(pl->dir);
+		pl->dpy = sin(pl->dir);
+	}
 	if (key == D) {pl->dir += 0.1; if (pl->dir > 2 * M_PI){pl->dir-=2*M_PI;} pl->dpx = cos(pl->dir); pl->dpy = sin(pl->dir);}
 	if (key == W && is_wall(pl->px + pl->dpx * 10, pl->py + pl->dpy * 10, all)) {pl->px += pl->dpx * 10; pl->py += pl->dpy * 10;}
 	if (key == S && is_wall(pl->px - pl->dpx * 10, pl->py - pl->dpy * 10, all)) {pl->px -= pl->dpx * 10; pl->py -= pl->dpy * 10;}
 	redisplay(all);
-	printf("dpx - %f      dpy - %f\n", pl->dpx, pl->dpy);
+	printf("dir - %f dpx - %f      dpy - %f\n",pl->dir, pl->dpx, pl->dpy);
 	return (0);
 }

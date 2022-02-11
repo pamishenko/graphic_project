@@ -18,13 +18,6 @@
 #include <libft.h>
 #include <cub3d.h>
 
-int	ft_close(int keycode, t_all *all)
-{
-	(void)keycode;
-	mlx_destroy_window(all->win->mlx, all->win->win);
-	return (0);
-}
-
 void draw_rays_3d(t_all *all){
 	t_plr	ray = *all->plr; // задаем координаты луча равные координатам игрока
 
@@ -96,7 +89,7 @@ int	main(int argc, char **argv){
 	set_player(all);
 	draw_map_2d(all);
 	draw_player_on_minimap(all);
+	draw_rays_3d(all);
 	mlx_hook(all->win->win, 2, (1L << 0), &buttons, all);
-	// mlx_hook(all->win->win, 2, 1L<<0, &ft_close, all);
 	mlx_loop(all->win->mlx);
 }

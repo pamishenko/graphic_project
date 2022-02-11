@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 23:51:17 by ttanja            #+#    #+#             */
-/*   Updated: 2022/02/05 21:57:13 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/02/11 20:43:24 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,10 @@ void	draw_player_on_minimap(t_all *all)
 {
 	ft_mlx_pixel_put_pl(all->win->mlx, all->win->win, all->plr->px - PLAYER_SIZE + PLAYER_SIZE % 2,
 			all->plr->py, PLAYER_SIZE);
-	for (int i = 0; i < 12; i++)
+	for (int i = 0; i < 300; i++)
 	{
+		if (all->mapa->map[(all->mapa->size % (((int)(all->plr->px + all->plr->dpx * i))/ BLOCK_SIZE))  + (all->mapa->x / (((int)(all->plr->py + all->plr->dpy * i))/ BLOCK_SIZE))] == '1')
+			break; 
 		mlx_pixel_put(all->win->mlx, all->win->win, all->plr->px + all->plr->dpx * i,
 			all->plr->py + all->plr->dpy * i, YELLOW);
 	}

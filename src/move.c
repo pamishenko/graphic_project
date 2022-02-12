@@ -42,9 +42,8 @@ int	buttons(int key, t_all *all)
 		pl->dpy = sin(pl->dir);
 	}
 	if (key == D) {pl->dir += 0.1; if (pl->dir > 2 * M_PI){pl->dir-=2*M_PI;} pl->dpx = cos(pl->dir); pl->dpy = sin(pl->dir);}
-	if (key == W && is_wall(pl->px + pl->dpx * 10, pl->py + pl->dpy * 10, all)) {pl->px += pl->dpx * 10; pl->py += pl->dpy * 10;}
-	if (key == S && is_wall(pl->px - pl->dpx * 10, pl->py - pl->dpy * 10, all)) {pl->px -= pl->dpx * 10; pl->py -= pl->dpy * 10;}
+	if (key == W && is_wall(pl->px + cos(pl->dir) * 10, pl->py + sin(pl->dir) * 10, all)) {pl->px += cos(pl->dir) * 10; pl->py += sin(pl->dir) * 10;}
+	if (key == S && is_wall(pl->px - cos(pl->dir) * 10, pl->py - sin(pl->dir) * 10, all)) {pl->px -= cos(pl->dir) * 10; pl->py -= sin(pl->dir) * 10;}
 	redisplay(all);
-	printf("dir - %f dpx - %f      dpy - %f\n",pl->dir, pl->dpx, pl->dpy);
 	return (0);
 }

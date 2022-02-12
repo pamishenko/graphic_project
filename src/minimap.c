@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 23:51:17 by ttanja            #+#    #+#             */
-/*   Updated: 2022/02/12 00:05:20 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/02/12 12:05:48 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,21 @@ void	draw_player_on_minimap(t_all *all)
 	t_plr ray;
 
 	ray = *all->plr;
-	ray.start = ray.dir - M_PI_2 ;
-	ray.end = ray.dir + M_PI_2;	
+		ray.start = ray.dir - (M_PI / 6);
+		ray.end = ray.dir + (M_PI / 6);	
 	ft_mlx_pixel_put_pl(all->win->mlx, all->win->win, all->plr->px - PLAYER_SIZE + PLAYER_SIZE % 2,
 			all->plr->py, PLAYER_SIZE);
-	
-	int i = 10;
-	while (ray.start <= ray.end)
+		while (ray.start <= ray.end)
 	{
-		ray.px = all->plr->px;
-		ray.py = all->plr->py;
-		while (all->mapa->map[(all->mapa->x * ((int)ray.py / BLOCK_SIZE)) + ((int)ray.px/ BLOCK_SIZE)] != '1')
+		ray.dpx = all->plr->px;
+		ray.dpy = all->plr->py;
+		while (all->mapa->map[(all->mapa->x * ((int)(ray.dpy) / BLOCK_SIZE)) + ((int)(ray.dpx)/ BLOCK_SIZE)] != '1')
 		{
-			ray.px += cos(ray.start);
-			ray.py += sin(ray.start);
-			mlx_pixel_put(all->win->mlx, all->win->win, ray.px, ray.py, GREEN + i++);
+			ray.dpx += cos(ray.start);
+			ray.dpy += sin(ray.start);
+			mlx_pixel_put(all->win->mlx, all->win->win, ray.dpx, ray.dpy, GREEN);
 		}
-		ray.start += M_PI_2 / 6;
+		ray.start += (M_PI / 3 / HEIGHT);
 	}
+
 }

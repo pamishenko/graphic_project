@@ -92,4 +92,5 @@ int	main(int argc, char **argv){
 	draw_player_on_minimap(all);
 	mlx_hook(all->win->win, 2, (1L << 0), &buttons, all);
 	mlx_loop(all->win->mlx);
+	usleep(60);
 }

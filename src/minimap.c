@@ -6,9 +6,11 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 23:51:17 by ttanja            #+#    #+#             */
-/*   Updated: 2022/02/12 12:05:48 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/02/13 03:57:01 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 #include <stdlib.h>
 #include <unistd.h>
@@ -33,9 +35,6 @@ void draw_map_2d(t_all *all)
 	}
 }
 
-
-#include <stdio.h>
-
 void	draw_player_on_minimap(t_all *all)
 {
 	t_plr ray;
@@ -56,6 +55,9 @@ void	draw_player_on_minimap(t_all *all)
 			mlx_pixel_put(all->win->mlx, all->win->win, ray.dpx, ray.dpy, GREEN);
 		}
 		ray.start += (M_PI / 3 / HEIGHT);
+		printf("%d  ", get_side_of_the_world((int)ray.dpx, (int)ray.dpy, BLOCK_SIZE, all));
+		float len = sqrt((all->plr->px - (int)ray.dpx) * (all->plr->px - (int)ray.dpx)  + (all->plr->py - (int)ray.dpy) * (all->plr->py - (int)ray.dpy));
+		printf("%f\n", len);
 	}
-
+	printf("%s", "\n");
 }

@@ -34,16 +34,16 @@ int	buttons(int key, t_all *all)
 {
 	pl = all->plr;
 	if (key == A) {
-		pl->dir -= 0.1;
+		pl->dir -= 0.01;
 		if (pl->dir < 0){
 			pl->dir+=2*M_PI;
 			}
 		pl->dpx = cos(pl->dir);
 		pl->dpy = sin(pl->dir);
 	}
-	if (key == D) {pl->dir += 0.1; if (pl->dir > 2 * M_PI){pl->dir-=2*M_PI;} pl->dpx = cos(pl->dir); pl->dpy = sin(pl->dir);}
-	if (key == W && is_wall(pl->px + cos(pl->dir) * 10, pl->py + sin(pl->dir) * 10, all)) {pl->px += cos(pl->dir) * 10; pl->py += sin(pl->dir) * 10;}
-	if (key == S && is_wall(pl->px - cos(pl->dir) * 10, pl->py - sin(pl->dir) * 10, all)) {pl->px -= cos(pl->dir) * 10; pl->py -= sin(pl->dir) * 10;}
+	if (key == D) {pl->dir += 0.01; if (pl->dir > 2 * M_PI){pl->dir-=2*M_PI;} pl->dpx = cos(pl->dir); pl->dpy = sin(pl->dir);}
+	if (key == W && is_wall(pl->px + cos(pl->dir) * 50, pl->py + sin(pl->dir) * 50, all)) {pl->px += cos(pl->dir) * 50; pl->py += sin(pl->dir) * 50;}
+	if (key == S && is_wall(pl->px - cos(pl->dir) * 50, pl->py - sin(pl->dir) * 50, all)) {pl->px -= cos(pl->dir) * 50; pl->py -= sin(pl->dir) * 50;}
 	redisplay(all);
 	return (0);
 }

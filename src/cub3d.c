@@ -18,69 +18,37 @@
 #include <libft.h>
 #include <cub3d.h>
 
-void draw_rays_3d(t_all *all){
-	// t_plr	ray = *all->plr; // задаем координаты луча равные координатам игрока
-
-	// (void)ray;
-	// while (all->mapa->map[all->mapa->size / ((int)(ray.py + ray.dpy)) /MAP_SIZE + (((int)(ray.px + ray.dpx)) /MAP_SIZE)]!= '1')
-	// {
-	// 	ray.dpx += cos(ray.dir);
-	// 	ray.dpy += sin(ray.dir);
-	// 	mlx_pixel_put(all->win->mlx, all->win->win, ray.px + ray.dpx, ray.py + ray.dpy, BLUE);
-	// }
-	(void)all;
-}
-
-void draw_rays_3d_2(t_all *all)
+void	floor_and_ceiling(t_all *all)
 {
-	int r, mx, my, mp, dof;
-	float rx, ry, ra, xo, yo;
-	ra = all->plr->dir;
+	int	x;
+	int	y;
 
-	for (r = 0; r < 1; r++)
+	y = 0;
+	while (y++ < WIDTH / 2)
 	{
-		dof = 0;
-		float a_tan = -1/tan(ra);
-		if (ra > M_PI){
-			ry = (((int)all->plr->py >> 6) << 6) - 0.0001;
-			rx = (all->plr->py - ry) * a_tan + all->plr->px;
-			yo = - 64;
-			xo = -yo * a_tan;
-		}
-		if (ra < M_PI){
-			ry = (((int)all->plr->py >> 6) << 6) + 64;
-			rx = (all->plr->py - ry) * a_tan + all->plr->px;
-			yo = 64;
-			xo = -yo * a_tan;
-		}
-		if (ra == 0 || ra == M_PI){
-			rx = all->plr->px;
-			ry = all->plr->py;
-			dof = MAP_SIZE;
-		}
-		while (dof < 64)
+		x = 0;
+		while (x++ < HEIGHT)
 		{
-			mx = (int)(rx) >> 6;
-			my = (int)(ry) >> 6;
-			mp = my * all->mapa->x + mx;
-			if (mp < all->mapa->x * all->mapa->y && all->mapa->map[mp] == '1'){
-				dof = 64;
-			}
-			else {
-				rx += xo;
-				ry += yo;
-				dof += 1;
-			}
-			mlx_pixel_put(all->win->mlx, all->win->win, all->plr->px + rx / MAP_SIZE,
-				all->plr->py + ry / MAP_SIZE, GREEN);
-			printf("rx = %f .  ry = %f\n", rx, ry);
+			mlx_pixel_put(all->win->mlx, all->win->win, x, WIDTH / 2 - y, 0x1E90FF);
+		 	mlx_pixel_put(all->win->mlx, all->win->win, x, WIDTH / 2 + y, 0xD2691E);
 		}
-		
 	}
 }
 
-
-
+int get_side_of_the_world(int x, int y, int block_size, t_all *all)
+{
+	x %= (block_size );
+	y %= (block_size );
+	if ((x >= 1 || x <= block_size) && y % block_size > block_size / 3 && all->plr->dir > M_PI)
+		return (RED);
+	if ((x >= 0 || x <= block_size - 1) && y % block_size < block_size / 3 && all->plr->dir < M_PI)
+		return (YELLOW);	
+	if (x % block_size < block_size / 3 && (y >= 0 || y <= block_size - 1))
+		return (BLACK);
+	if (x % block_size > block_size / 3 && (y >= 1 || y <= block_size))
+		return (GREEN);
+	return (0);
+}
 
 int	main(int argc, char **argv){
 	t_all *all;
@@ -89,8 +57,9 @@ int	main(int argc, char **argv){
 	all = init_game(argv);
 	set_player(all);
 	draw_map_2d(all);
+	floor_and_ceiling(all);
 	draw_player_on_minimap(all);
+
 	mlx_hook(all->win->win, 2, (1L << 0), &buttons, all);
 	mlx_loop(all->win->mlx);
-	usleep(60);
 }

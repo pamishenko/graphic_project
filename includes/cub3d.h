@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 23:06:35 by ttanja            #+#    #+#             */
-/*   Updated: 2022/02/12 12:05:21 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/02/13 04:21:43 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@
 # define DOWN 125
 # define LEFT 123
 # define RIGHT 124
-#define	BLOCK_SIZE 8
-#define PLAYER_SIZE 5
+#define	BLOCK_SIZE 64
+#define PLAYER_SIZE 1 
 
 #define MAP_SIZE 64 // условный размер каждого квадратика в карте
 
@@ -127,6 +127,8 @@ void	set_map(int i, int j, char *line, t_map *mapa);
 t_map *parser_map(char **argv, t_map	*mapa);
 void ft_mlx_pixel_put(void *mlx, void *win, int x, int y, int color, int s);
 void ft_mlx_pixel_put_pl(void *mlx, void *win, int x, int y, int s);
-void draw_rays_3d(t_all *all);
+void	draw_3d(t_all *all);
+int get_side_of_the_world(int x, int y, int block_size, t_all *all);
+void	floor_and_ceiling(t_all *all);
 
 #endif

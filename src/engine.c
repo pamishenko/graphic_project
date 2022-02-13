@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 17:15:06 by ttanja            #+#    #+#             */
-/*   Updated: 2022/02/13 04:19:59 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/02/13 16:53:50ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	redisplay(t_all *all)
 {
 	mlx_clear_window(all->win->mlx, all->win->win);
 	floor_and_ceiling(all);
+	draw_3d(all);
 	// draw_map_2d(all);
 	// draw_player_on_minimap(all);
-	draw_3d(all);
 }
 
 void ft_mlx_pixel_put(void *mlx, void *win, int x, int y, int color, int s)
@@ -74,11 +74,12 @@ void	draw_3d(t_all *all)
 			ray.dpx += cos(ray.start);
 			ray.dpy += sin(ray.start);
 		}
-		ray.start += (M_PI / 3 / HEIGHT);
+		
+		float len = sqrt((all->plr->px - (int)ray.dpx) * (all->plr->px - (int)ray.dpx)  + (all->plr->py - (int)ray.dpy) * (all->plr->py - (int)ray.dpy));		printf("l %f\n", len);
 		x++;
-		float len = sqrt((all->plr->px - (int)ray.dpx) * (all->plr->px - (int)ray.dpx)  + (all->plr->py - (int)ray.dpy) * (all->plr->py - (int)ray.dpy));		printf("%f\n", len);
 		int i = 0;
 		while (i++ < WIDTH / len * 100)		
-			mlx_pixel_put(all->win->mlx, all->win->win, x, i + (WIDTH - (WIDTH / len * 100)) / 2, get_side_of_the_world((int)ray.dpx, (int)ray.dpy, BLOCK_SIZE, all));		
+			mlx_pixel_put(all->win->mlx, all->win->win, x, i + (WIDTH - (WIDTH / len * 100)) / 2, YELLOW);		
+		ray.start += (M_PI / 3 / HEIGHT);
 	}
 }

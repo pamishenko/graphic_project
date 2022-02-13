@@ -56,10 +56,10 @@ int	main(int argc, char **argv){
 	(void)argc;
 	all = init_game(argv);
 	set_player(all);
-	draw_map_2d(all);
 	floor_and_ceiling(all);
-	draw_player_on_minimap(all);
-
+	draw_3d(all);
+	// draw_map_2d(all);
+	// draw_player_on_minimap(all);
 	mlx_hook(all->win->win, 2, (1L << 0), &buttons, all);
 	mlx_loop(all->win->mlx);
 }

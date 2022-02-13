@@ -21,12 +21,7 @@
 #include <cub3d.h>
 
 
-int	is_wall(int px, int py, t_all *all)
-{
-	if (all->mapa->map[all->mapa->x * py/MAP_SIZE + px/MAP_SIZE] == '1')	
-		return (1);
-	return (1);
-}
+
 
 t_plr *pl;
 
@@ -34,16 +29,16 @@ int	buttons(int key, t_all *all)
 {
 	pl = all->plr;
 	if (key == A) {
-		pl->dir -= 0.01;
+		pl->dir -= 0.1;
 		if (pl->dir < 0){
 			pl->dir+=2*M_PI;
 			}
 		pl->dpx = cos(pl->dir);
 		pl->dpy = sin(pl->dir);
 	}
-	if (key == D) {pl->dir += 0.01; if (pl->dir > 2 * M_PI){pl->dir-=2*M_PI;} pl->dpx = cos(pl->dir); pl->dpy = sin(pl->dir);}
-	if (key == W && is_wall(pl->px + cos(pl->dir) * 50, pl->py + sin(pl->dir) * 50, all)) {pl->px += cos(pl->dir) * 50; pl->py += sin(pl->dir) * 50;}
-	if (key == S && is_wall(pl->px - cos(pl->dir) * 50, pl->py - sin(pl->dir) * 50, all)) {pl->px -= cos(pl->dir) * 50; pl->py -= sin(pl->dir) * 50;}
+	if (key == D) {pl->dir += 0.1; if (pl->dir > 2 * M_PI){pl->dir-=2*M_PI;} pl->dpx = cos(pl->dir); pl->dpy = sin(pl->dir);}
+	if (key == W) {pl->px += cos(pl->dir) * 50; pl->py += sin(pl->dir) * 50;}
+	if (key == S) {pl->px -= cos(pl->dir) * 50; pl->py -= sin(pl->dir) * 50;}
 	redisplay(all);
 	return (0);
 }

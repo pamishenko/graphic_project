@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 23:51:17 by ttanja            #+#    #+#             */
-/*   Updated: 2022/02/13 03:57:01 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/02/14 19:33:33 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,6 @@ void	draw_player_on_minimap(t_all *all)
 		}
 		ray.start += (M_PI / 3 / HEIGHT);
 		printf("%d  ", get_side_of_the_world((int)ray.dpx, (int)ray.dpy, BLOCK_SIZE, all));
-		float len = sqrt((all->plr->px - (int)ray.dpx) * (all->plr->px - (int)ray.dpx)  + (all->plr->py - (int)ray.dpy) * (all->plr->py - (int)ray.dpy));
-		printf("%f\n", len);
+
 	}
-	printf("%s", "\n");
 }

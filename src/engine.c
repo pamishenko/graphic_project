@@ -75,11 +75,11 @@ void	draw_3d(t_all *all)
 			ray.dpy += sin(ray.start);
 		}
 		
-		float len = sqrt((all->plr->px - (int)ray.dpx) * (all->plr->px - (int)ray.dpx)  + (all->plr->py - (int)ray.dpy) * (all->plr->py - (int)ray.dpy));		printf("l %f\n", len);
+		float len = sqrt((all->plr->px - (int)ray.dpx) * (all->plr->px - (int)ray.dpx)  + (all->plr->py - (int)ray.dpy) * (all->plr->py - (int)ray.dpy)) * cos(ray.start - ray.dir);
 		x++;
 		int i = 0;
-		while (i++ < WIDTH / len * 100)		
-			mlx_pixel_put(all->win->mlx, all->win->win, x, i + (WIDTH - (WIDTH / len * 100)) / 2, YELLOW);		
+		while (i++ < WIDTH / len * 50)		
+			mlx_pixel_put(all->win->mlx, all->win->win, x, i + (WIDTH - (WIDTH / len * 50)) / 2, YELLOW);		
 		ray.start += (M_PI / 3 / HEIGHT);
 	}
 }

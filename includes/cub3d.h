@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 23:06:35 by ttanja            #+#    #+#             */
-/*   Updated: 2022/02/13 04:21:43 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/02/14 20:36:56 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@
 #define YELLOW_TXT  "\033[1;33m"
 #define WHITE_TXT   "\033[1;37m"
 
-#define HEIGHT 640
-#define WIDTH 480
+#define HEIGHT 1280
+#define WIDTH 920 
 
 # define ESC 53
 # define W 13

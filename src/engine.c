@@ -78,8 +78,8 @@ void	draw_3d(t_all *all)
 		float len = sqrt((all->plr->px - (int)ray.dpx) * (all->plr->px - (int)ray.dpx)  + (all->plr->py - (int)ray.dpy) * (all->plr->py - (int)ray.dpy)) * cos(ray.start - ray.dir);
 		x++;
 		int i = 0;
-		while (i++ < WIDTH / len * 50)		
-			mlx_pixel_put(all->win->mlx, all->win->win, x, i + (WIDTH - (WIDTH / len * 50)) / 2, YELLOW);		
+		while (i++ < WIDTH / len * 30)		
+			mlx_pixel_put(all->win->mlx, all->win->win, x, i + (WIDTH - (WIDTH / len * 30)) / 2, get_side_of_the_world((int)(ray.dpx)/ BLOCK_SIZE, all->mapa->x * ((int)(ray.dpy) / BLOCK_SIZE),BLOCK_SIZE, all));		
 		ray.start += (M_PI / 3 / HEIGHT);
 	}
 }

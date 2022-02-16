@@ -69,23 +69,12 @@ int	main(int argc, char **argv)
 	t_all *all;
 
 	(void)argc;
-	all = ft_calloc(sizeof(t_all), 1);
-	all->win = ft_calloc(sizeof(t_win), 1); 
-		all->plr = ft_calloc(sizeof(t_plr), 1);
-	all->win->mlx = ft_calloc(sizeof(void), 1);	
-	all->win->win = ft_calloc(sizeof(void), 1);
-	all->data = ft_calloc(sizeof(t_data), 1);
-	all->win->mlx = mlx_init();
-	all->win->win = mlx_new_window(all->win->mlx, HEIGHT, WIDTH, "CUB3D");
-	all->data->img = mlx_new_image(all->win->mlx, HEIGHT, WIDTH);
-	all->data->addr = mlx_get_data_addr(all->data->img, &all->data->bits_per_pixel, &all->data->line_length,
-								&all->data->endian);
-		all->mapa = ft_calloc(sizeof(t_map), 1);
+	all = init_game(argv);
 	parser_map(argv, all->mapa);
 	set_player(all);
-	floor_and_ceiling(all);
-	draw_3d(all);
 	mlx_put_image_to_window(all->win->mlx, all->win->win, all->data->img, 0, 0);
 	mlx_hook(all->win->win, 2, (1L << 0), &buttons, all);
+	mlx_loop_hook(all->win->mlx, &redisplay, all);
 	mlx_loop(all->win->mlx);
+
 }

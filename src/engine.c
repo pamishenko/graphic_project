@@ -19,7 +19,7 @@
 #include <cub3d.h>
 
 
-void	redisplay(t_all *all)
+int	redisplay(t_all *all)
 {
 	mlx_clear_window(all->win->mlx, all->win->win);
 	floor_and_ceiling(all);
@@ -27,7 +27,8 @@ void	redisplay(t_all *all)
 	mlx_put_image_to_window(all->win->mlx, all->win->win, all->data->img, 0, 0);
 	// draw_map_2d(all);
 	// draw_player_on_minimap(all);
-	// usleep(1000 / 30);
+	usleep(1000 / 60);
+	return (0);
 }
 
 void ft_mlx_pixel_put(void *mlx, void *win, int x, int y, int color, int s)
@@ -81,8 +82,8 @@ void	draw_3d(t_all *all)
 			+ (all->plr->py - (int)ray.dpy) * (all->plr->py - (int)ray.dpy)) * cos(ray.start - ray.dir)) / 100;
 		x++;
 		int i = 0;
-		while (i++ < WIDTH / len)
-			my_mlx_pixel_put(all->data, x , i + (WIDTH - (WIDTH / len)) / 2, RED);
+			while (i++ < WIDTH / len)
+				my_mlx_pixel_put(all->data, x , i + (WIDTH - (WIDTH / len)) / 2, RED);
 		ray.start += (M_PI / 3 / HEIGHT);
 	}
 }

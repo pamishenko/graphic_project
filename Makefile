@@ -6,7 +6,7 @@
 #    By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/18 22:53:26 by ttanja            #+#    #+#              #
-#    Updated: 2022/02/15 21:10:10 by ttanja           ###   ########.fr        #
+#    Updated: 2022/02/16 18:33:45 by ttanja           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ SRC				=	\
 					./src/move.c \
 					./src/parsemap.c \
 					./src/player.c \
-					./src/texture.c \
+					./src/cub.c \
 					./src/utils_mlx.c \
 					./src/utils.c
 

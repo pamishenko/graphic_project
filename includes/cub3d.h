@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 23:06:35 by ttanja            #+#    #+#             */
-/*   Updated: 2022/02/16 18:16:54 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/02/16 19:40:40 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ int		check_wall(t_all *all, int x, int y);
 void draw_map_2d(t_all *all);
 void	draw_player_on_minimap(t_all *all);
 
-void	redisplay(t_all *all);
+int	redisplay(t_all *all);
 
 
 void	set_size_map(char **argv, t_map *map);

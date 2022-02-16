@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 23:06:35 by ttanja            #+#    #+#             */
-/*   Updated: 2022/02/14 21:41:59 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/02/16 18:16:54 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@
 #define YELLOW_TXT  "\033[1;33m"
 #define WHITE_TXT   "\033[1;37m"
 
-#define HEIGHT 640
-#define WIDTH 480
+#define HEIGHT 800
+#define WIDTH 600
 
 # define ESC 53
 # define W 13
@@ -47,19 +47,25 @@
 
 #include <libft.h>
 
+typedef struct	s_data {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_data;
 typedef struct	s_plr //структура для игрока и луча
 {
 	int			px;
 	int			py;
-	float			dpx;
-	float			dpy;
+	float		dpx;
+	float		dpy;
 	float		dir;
 	float		start;
 	float		end;
-	int			realAngle;
-	int			fakeAngle;
+	int			real_angle;
 	float		speed;
-	float		rotSpeed;
+	float		rot_speed;
 }				  t_plr;
 
 typedef struct s_block
@@ -91,7 +97,6 @@ typedef struct	s_win //структура для окна
 {
 	void			*mlx;
 	void			*win;
-	void			*img;
 	void			*addr; 
 	int				line_l;
 }	t_win;
@@ -102,6 +107,7 @@ typedef struct	s_all // структура для всего вместе
 	t_plr			*plr;
 	t_map			*mapa;
 	t_resolution	*resolution;
+	t_data			*data;
 }		t_all;
 
 
@@ -130,5 +136,6 @@ void ft_mlx_pixel_put_pl(void *mlx, void *win, int x, int y, int s);
 void	draw_3d(t_all *all);
 int get_side_of_the_world(int x, int y, int block_size, t_all *all);
 void	floor_and_ceiling(t_all *all);
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 
 #endif

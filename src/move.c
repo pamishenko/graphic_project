@@ -20,23 +20,32 @@
 
 #include <cub3d.h>
 
+void dir_inc(t_plr *pl){
+	pl->dir += 0.05;
+	if (pl->dir < 0)
+		pl->dir+=2*M_PI;
+	pl->dpx = cos(pl->dir) * pl->speed;
+	pl->dpy = sin(pl->dir) * pl->speed;
+}
 
+void dir_dec(t_plr *pl){
+	pl->dir -= 0.05;
+	if (pl->dir < 0)
+		pl->dir-=2 * M_PI;
+	pl->dpx = cos(pl->dir) * pl->speed;
+	pl->dpy = sin(pl->dir) * pl->speed;
+}
 
-
-t_plr *pl;
 
 int	buttons(int key, t_all *all)
 {
+	t_plr *pl;
+
 	pl = all->plr;
-	if (key == A) {
-		pl->dir -= 0.05;
-		if (pl->dir < 0){
-			pl->dir+=2*M_PI;
-			}
-		pl->dpx = cos(pl->dir);
-		pl->dpy = sin(pl->dir);
-	}
-	if (key == D) {pl->dir += 0.05; if (pl->dir > 2 * M_PI){pl->dir-=2*M_PI;} pl->dpx = cos(pl->dir); pl->dpy = sin(pl->dir);}
+	if (key == A)
+		dir_dec(pl);
+	if (key == D) 
+		dir_inc(pl);
 	if (key == W) {pl->px += cos(pl->dir) * 20; pl->py += sin(pl->dir) * 20;}
 	if (key == S) {pl->px -= cos(pl->dir) * 20; pl->py -= sin(pl->dir) * 20;}
 	redisplay(all);

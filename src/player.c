@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 18:54:29 by ttanja            #+#    #+#             */
-/*   Updated: 2022/02/14 22:02:54 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/02/15 09:21:47 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ int	set_player(t_all *all)
 	i = 0;
 	result = 21;
 	// В этом месте нужно сделать чекер на то что на карте есть игрок и он один
-	all->plr->realAngle = 0;
+	all->plr->real_angle = 0;
 	all->plr->speed = 1;
-	all->plr->rotSpeed = 5;
+	all->plr->rot_speed = 5;
 	while (i < all->mapa->x * all->mapa->y && !(result = is_player(all, all->mapa->map[i])))
 		i++;
 	if (result)

@@ -6,7 +6,7 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:01:44 by ttanja            #+#    #+#             */
-/*   Updated: 2022/01/26 16:44:17 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/02/14 23:39:56 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 
 void	printerror(int code)
 {
-
 	if (code == 11)
 		ft_putstr_fd(RED_TXT"Error map parsing\n"RESET_TXT, 2);
 	if (code == 21)

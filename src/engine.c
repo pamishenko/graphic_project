@@ -24,8 +24,10 @@ void	redisplay(t_all *all)
 	mlx_clear_window(all->win->mlx, all->win->win);
 	floor_and_ceiling(all);
 	draw_3d(all);
+	mlx_put_image_to_window(all->win->mlx, all->win->win, all->data->img, 0, 0);
 	// draw_map_2d(all);
 	// draw_player_on_minimap(all);
+	// usleep(1000 / 30);
 }
 
 void ft_mlx_pixel_put(void *mlx, void *win, int x, int y, int color, int s)
@@ -65,6 +67,7 @@ void	draw_3d(t_all *all)
 	ray = *all->plr;
 	ray.start = ray.dir - (M_PI / 6);
 	ray.end = ray.dir + (M_PI / 6);	
+	  
 	while (ray.start <= ray.end)
 	{
 		ray.dpx = all->plr->px;
@@ -74,12 +77,12 @@ void	draw_3d(t_all *all)
 			ray.dpx += cos(ray.start);
 			ray.dpy += sin(ray.start);
 		}
-		
-		float len = sqrt((all->plr->px - (int)ray.dpx) * (all->plr->px - (int)ray.dpx)  + (all->plr->py - (int)ray.dpy) * (all->plr->py - (int)ray.dpy)) * cos(ray.start - ray.dir);
+		float len = (sqrt((all->plr->px - (int)ray.dpx) * (all->plr->px - (int)ray.dpx)
+			+ (all->plr->py - (int)ray.dpy) * (all->plr->py - (int)ray.dpy)) * cos(ray.start - ray.dir)) / 100;
 		x++;
 		int i = 0;
-		while (i++ < WIDTH / len * 30)		
-			mlx_pixel_put(all->win->mlx, all->win->win, x, i + (WIDTH - (WIDTH / len * 30)) / 2, get_side_of_the_world((int)(ray.dpx)/ BLOCK_SIZE, all->mapa->x * ((int)(ray.dpy) / BLOCK_SIZE),BLOCK_SIZE, all));		
+		while (i++ < WIDTH / len)
+			my_mlx_pixel_put(all->data, x , i + (WIDTH - (WIDTH / len)) / 2, RED);
 		ray.start += (M_PI / 3 / HEIGHT);
 	}
 }

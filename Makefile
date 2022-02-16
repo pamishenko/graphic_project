@@ -6,7 +6,7 @@
 #    By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/18 22:53:26 by ttanja            #+#    #+#              #
-#    Updated: 2022/02/02 22:51:35 by ttanja           ###   ########.fr        #
+#    Updated: 2022/02/15 21:10:10 by ttanja           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRC				=	\
 					./src/parsemap.c \
 					./src/player.c \
 					./src/texture.c \
+					./src/utils_mlx.c \
 					./src/utils.c
 
 CC				=	gcc

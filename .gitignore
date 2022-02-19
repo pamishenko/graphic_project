@@ -5,3 +5,4 @@ minilibx_*
 a.out
 .DS_Store
 *.a
+*.swp

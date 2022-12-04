@@ -1,0 +1,655 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.
+# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+# This program built for i386-apple-darwin11.3.0
+
+# Make data base, printed on Tue Jun 14 18:59:57 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# makefile (from `Makefile', line 55)
+OBJ = $(SRC:.c=.o)
+# makefile (from `Makefile', line 32)
+SRC = drawrays_utils.c drawrays.c engine.c errors.c key_control.c main.c player.c readcolor.c readconfig.c render.c setwinsize.c utils_math.c utils_textures.c utils.c 
+# environment
+VSCODE_LOG_NATIVE = false
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /Users/pavel/42school_projects/4_round/cub3d
+# makefile
+SHELL = /bin/sh
+# makefile (from `Makefile', line 52)
+RM = rm -f
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
+# environment
+_ = /usr/bin/make
+# makefile (from `Makefile', line 50)
+CFLAGS = -Wall -Wextra -Werror -g
+# makefile (from `Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# makefile (from `Makefile', line 15)
+LIBS_PATH = ./lib
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+__CFBundleIdentifier = com.microsoft.VSCode
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/mn/mb645dqj6qx_0_ycnkv757_40000gn/T/vscode-ipc-61684f93-2596-4412-befb-fd8520f96101.sock
+# environment
+VSCODE_CWD = /
+# environment
+PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin
+# makefile (from `Makefile', line 20)
+MLX_PATH = $(LIBS_PATH)/minilibx_opengl/
+# environment
+VSCODE_LOG_STACK = false
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# makefile (from `Makefile', line 21)
+MLX_LIB = $(MLX_PATH)libmlx.*
+# default
+.FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
+# environment
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.ad9CNrkbdQ/Listeners
+# automatic
+%F = $(notdir $%)
+# makefile (from `Makefile', line 23)
+HEADER_FOLDER = ./includes/
+# environment
+VSCODE_PIPE_LOGGING = true
+# makefile (from `Makefile', line 56)
+OBJS = $(addprefix $(OBJS_DIR), $(OBJ))
+# environment
+PWD = /Users/pavel/42school_projects/4_round/cub3d
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /Users/pavel
+# default
+MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
+# environment
+VSCODE_CODE_CACHE_PATH = /Users/pavel/Library/Application Support/Code/CachedData/4af164ea3a06f701fe3e89a2bcbb421d2026b68f
+# environment
+LOGNAME = pavel
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+XPC_FLAGS = 0x0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+SHLVL = 1
+# makefile (from `Makefile', line 49)
+CC = gcc
+# default
+MAKE_VERSION := 3.81
+# environment
+USER = pavel
+# makefile
+.DEFAULT_GOAL := all
+# makefile (from `Makefile', line 13)
+NAME = cub3D
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# default
+MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
+# default
+.VARIABLES := 
+# environment
+TMPDIR = /var/folders/mn/mb645dqj6qx_0_ycnkv757_40000gn/T/
+# automatic
+*F = $(notdir $*)
+# environment
+VSCODE_IPC_HOOK = /Users/pavel/Library/Application Support/Code/1.68.0-main.sock
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+MFLAGS = -Rrqp
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# makefile (from `Makefile', line 25)
+HEADER_FILES = ${HEADER_FOLDER}mlx.h ${HEADER_FOLDER}libft.h ${HEADER_FOLDER}cub3d.h ${HEADER_FOLDER}defines.h
+# environment
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.7799680.7799686
+# makefile (from `Makefile', line 54)
+OBJS_DIR = objects/
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# environment
+__CF_USER_TEXT_ENCODING = 0x1F5:0x0:0x0
+# environment
+COMMAND_MODE = unix2003
+# default
+MAKEFILES := 
+# makefile (from `Makefile', line 31)
+SRC_DIR = src/
+# automatic
+<F = $(notdir $<)
+# makefile (from `Makefile', line 16)
+LIBFT_PATH = $(LIBS_PATH)/libft/
+# environment
+LC_ALL = C
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# default
+.INCLUDE_DIRS = /usr/local/include
+# environment
+MAKELEVEL := 0
+# environment
+LANG = C
+# environment
+VSCODE_PID = 839
+# makefile (from `Makefile', line 17)
+LIBFT_LIB = $(LIBFT_PATH)libft.a
+# variable set hash-table stats:
+# Load=78/1024=8%, Rehash=0, Collisions=9/118=8%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 16777229, inode 459307): 20 files, no impossibilities.
+# src (device 16777229, inode 459491): 16 files, no impossibilities so far.
+
+# 36 files, no impossibilities in 2 directories.
+
+# Implicit Rules
+
+objects/%.o: src/%.c
+#  commands to execute (from `Makefile', line 59):
+	mkdir -p $(OBJS_DIR)
+	$(CC) $(FLAGS) -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c $< -o $@
+	
+
+# 1 implicit rules, 0 (0.0%) terminal.
+
+# Files
+
+objects/player.o: src/player.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `player'
+#  Last modified 2022-05-05 14:54:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 59):
+	mkdir -p $(OBJS_DIR)
+	$(CC) $(FLAGS) -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c $< -o $@
+	
+
+# Not a target:
+src/readconfig.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-17 10:21:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/drawrays_utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-17 10:21:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+includes/cub3d.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-17 10:21:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+objects/render.o: src/render.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `render'
+#  Last modified 2022-05-05 14:54:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 59):
+	mkdir -p $(OBJS_DIR)
+	$(CC) $(FLAGS) -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c $< -o $@
+	
+
+all: cub3D lib/libft/libft.a
+#  Phony target (prerequisite of .PHONY).
+#  Command-line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+p: re
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 65):
+	./cub3d map/lvl00.cub
+	
+
+.PHONY: all clean fclean re
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+cub3D: objects/drawrays_utils.o objects/drawrays.o objects/engine.o objects/errors.o objects/key_control.o objects/main.o objects/player.o objects/readcolor.o objects/readconfig.o objects/render.o objects/setwinsize.o objects/utils_math.o objects/utils_textures.o objects/utils.o includes/mlx.h includes/libft.h includes/cub3d.h includes/defines.h
+#  Implicit rule search has not been done.
+#  Last modified 2022-05-05 14:54:46
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 68):
+	make -C $(MLX_PATH)
+	make -C $(LIBFT_PATH)
+	cp $(MLX_LIB) ./ 
+	cp $(LIBFT_LIB) ./
+ 
+	cp $(MLX_PATH)mlx.h $(HEADER_FOLDER)
+	cp $(LIBFT_PATH)includes/libft.h $(HEADER_FOLDER)
+	$(CC) $(CFLAGS) -I ${HEADER_FOLDER} $(OBJS) -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	
+
+objects/utils.o: src/utils.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils'
+#  Last modified 2022-05-05 14:54:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 59):
+	mkdir -p $(OBJS_DIR)
+	$(CC) $(FLAGS) -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c $< -o $@
+	
+
+objects/engine.o: src/engine.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `engine'
+#  Last modified 2022-05-05 14:54:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 59):
+	mkdir -p $(OBJS_DIR)
+	$(CC) $(FLAGS) -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c $< -o $@
+	
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-17 10:21:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+objects/readconfig.o: src/readconfig.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `readconfig'
+#  Last modified 2022-05-05 14:54:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 59):
+	mkdir -p $(OBJS_DIR)
+	$(CC) $(FLAGS) -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c $< -o $@
+	
+
+objects/drawrays_utils.o: src/drawrays_utils.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `drawrays_utils'
+#  Last modified 2022-05-05 14:54:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 59):
+	mkdir -p $(OBJS_DIR)
+	$(CC) $(FLAGS) -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c $< -o $@
+	
+
+# Not a target:
+src/drawrays.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-17 10:21:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/errors.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-17 10:21:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/readcolor.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-17 10:21:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+fclean: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 82):
+	rm -f libmlx.*
+	rm -f libft.a
+	${RM} ${NAME} ${LIBFT_LIB} $(MLX_LIB)
+	
+
+# Not a target:
+src/setwinsize.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-17 10:21:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/main.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-17 10:21:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/key_control.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-17 10:21:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+includes/mlx.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-05 14:54:46
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/utils_textures.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-17 10:21:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+re: fclean all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+src/utils_math.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-17 10:21:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 77):
+	make -C ${LIBFT_PATH} clean
+	make -C ${MLX_PATH} clean
+	${RM} -r ${OBJS_DIR}
+	
+
+objects/drawrays.o: src/drawrays.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `drawrays'
+#  Last modified 2022-05-05 14:54:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 59):
+	mkdir -p $(OBJS_DIR)
+	$(CC) $(FLAGS) -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c $< -o $@
+	
+
+# Not a target:
+includes/libft.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-05 14:54:46
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/player.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-17 10:21:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+objects/errors.o: src/errors.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `errors'
+#  Last modified 2022-05-05 14:54:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 59):
+	mkdir -p $(OBJS_DIR)
+	$(CC) $(FLAGS) -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c $< -o $@
+	
+
+objects/readcolor.o: src/readcolor.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `readcolor'
+#  Last modified 2022-05-05 14:54:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 59):
+	mkdir -p $(OBJS_DIR)
+	$(CC) $(FLAGS) -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c $< -o $@
+	
+
+# Not a target:
+src/render.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-17 10:21:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+objects/setwinsize.o: src/setwinsize.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `setwinsize'
+#  Last modified 2022-05-05 14:54:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 59):
+	mkdir -p $(OBJS_DIR)
+	$(CC) $(FLAGS) -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c $< -o $@
+	
+
+objects/main.o: src/main.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `main'
+#  Last modified 2022-05-05 14:54:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 59):
+ 
+	mkdir -p $(OBJS_DIR)
+	$(CC) $(FLAGS) -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c $< -o $@
+	
+
+# Not a target:
+lib/libft/libft.a:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-05 14:54:46
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+objects/key_control.o: src/key_control.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `key_control'
+#  Last modified 2022-05-05 14:54:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 59):
+	mkdir -p $(OBJS_DIR)
+	$(CC) $(FLAGS) -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c $< -o $@
+	
+
+objects/utils_textures.o: src/utils_textures.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils_textures'
+#  Last modified 2022-05-05 14:54:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 59):
+	mkdir -p $(OBJS_DIR)
+	$(CC) $(FLAGS) -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c $< -o $@
+	
+
+# Not a target:
+src/utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-17 10:21:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/engine.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-17 10:21:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+objects/utils_math.o: src/utils_math.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils_math'
+#  Last modified 2022-05-05 14:54:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 59):
+	mkdir -p $(OBJS_DIR)
+	$(CC) $(FLAGS) -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c $< -o $@
+	
+
+# Not a target:
+includes/defines.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-17 10:21:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# files hash-table stats:
+# Load=43/1024=4%, Rehash=0, Collisions=0/126=0%
+# VPATH Search Paths
+
+# No `vpath' search paths.
+
+# No general (`VPATH' variable) search path.
+
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+
+# Finished Make data base on Tue Jun 14 18:59:57 2022
+
+ 

@@ -6,131 +6,181 @@
 /*   By: ttanja <ttanja@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 23:06:35 by ttanja            #+#    #+#             */
-/*   Updated: 2022/02/02 00:10:07 by ttanja           ###   ########.fr       */
+/*   Updated: 2022/04/03 14:41:54 by ttanja           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# define NONE 0xFF000000
-# define WHITE 0x00FFFFFF
-# define BLACK 0x00000000
-# define RED 0x00FF0000
-# define GREEN 0x0000FF00
-# define BLUE 0x000000FF
-# define MAGENTA 0x00FF00FF
-# define YELLOW 0x00FFFF00
-# define CYAN 0x0000FFFF
+# include <errno.h>
+# include <math.h>
+# include <string.h>
+# include <stdio.h>
+# include "../includes/defines.h"
 
-#define RESET_TXT   "\033[0m"
-#define RED_TXT     "\033[1;31m"
-#define YELLOW_TXT  "\033[1;33m"
-#define WHITE_TXT   "\033[1;37m"
-
-#define HEIGHT 1024
-#define WIDTH 520
-
-# define ESC 53
-# define W 13
-# define A 0
-# define S 1
-# define D 2
-# define UP 126
-# define DOWN 125
-# define LEFT 123
-# define RIGHT 124
-
-#define MAP_SIZE 128 // условный размер каждого квадратика в карте
-
-#include <libft.h>
-
-typedef struct s_position
+typedef struct s_draws
 {
-	float x;
-	float y;
-} t_position;
+	int		tchk;
+	float	r_ang;
+	float	spsx;
+	float	spsy;
+	float	intx;
+	float	inty;
+	float	nhorx;
+	float	nhory;
+	float	hwhitx;
+	float	hwhity;
+	int		fhwhit;
+	int		vwallhit;
+	float	hdistnc;
+	float	vdistnc;
+	float	vwhitx;
+	float	vwhity;
+}					t_draws;
 
-
-typedef struct	s_plr //структура для игрока и луча
+typedef struct s_rays
 {
-	t_position	position;
-	t_position	delta_position;
-	float		dir;
-	float		start;
-	float		end;
-	int			realAngle;
-	int			fakeAngle;
-	float		speed;
-	float		rotSpeed;
-}				  t_plr;
+	float	wallhx;
+	float	wallhy;
+	int		down;
+	int		up;
+	int		right;
+	int		left;
+	int		hitvert;
+	float	distance;
+	float	angle;
+}			t_rays;
 
-typedef struct s_block
+typedef struct s_player
+{
+	float	p_x;
+	float	p_y;
+	char	sp;
+	float	d;
+	float	angle;
+	int		s;
+}			t_player;
+
+typedef struct s_key
+{
+	int	straight;
+	int	back;
+	int	right;
+	int	left;
+	int	rightd;
+	int	leftd;
+	int	up;
+	int	down;
+	int	exit;
+}		t_key;
+
+typedef struct s_data
+{
+	void	*img;
+	int		*addr;
+	int		bpp;
+	int		line_len;
+	int		end;
+}				t_data;
+
+typedef struct s_mapa
+{
+	int		x_size;
+	int		y_size;
+	int		max;
+	char	mp[2048][2048];
+}			t_mapa;
+
+typedef struct s_color
+{
+	double	r;
+	double	g;
+	double	b;
+	double	t;
+}			t_color;
+
+typedef struct s_game
+{
+	int		w;
+	int		h;
+	t_color	fl;
+	t_color	ceil;
+}			t_game;
+typedef struct s_textures
+{
+	char	tx_n[64];
+	char	tx_s[64];
+	char	tx_w[64];
+	char	tx_e[64];
+}			t_textures;
+
+typedef struct s_wall
 {
 	int	x;
 	int	y;
-	char *n_wall;
-	char *s_wall;
-	char *e_wall;
-	char *w_wall;
-} t_block;
+	int	*tex[4];
+}		t_wall;
 
-typedef struct s_map
+typedef struct s_mlx
 {
-	int	x;
-	int	y;
-	char *map;
-} t_map;
+	void	*mlx;
+	void	*win;
+	float	x;
+	float	y;
+	t_data	img;
+}			t_mlx;
 
-typedef struct s_resolution
+typedef struct s_ren
 {
-	int	width;
-	int	height;
-	int	fps;
-} t_resolution;
+	float		raydist;
+	float		distpj;
+	float		line;
+	float		top;
+	float		dist;
+	float		bottom;
+	int			i;
+	float		j;
+}				t_ren;
 
-typedef struct	s_win //структура для окна
+typedef struct s_all
 {
-	void			*mlx;
-	void			*win;
-	void			*img;
-	void			*addr; 
-	int				line_l;
-	int				bpp;
-	int				en;
-	t_resolution	resolution;
-}	t_win;
+	t_mlx		mlx;
+	t_textures	tex;
+	int			count_readed_str;
+	t_mapa		map;
+	t_game		game;
+	t_player	pl;
+	t_wall		wall;
+	t_key		key;
+	t_draws		draws;
+	t_rays		rays[WIDTH];
+	char		flag;
+	int			map_line_counter;
+	t_ren		rend;
+}			t_all;
 
-typedef struct	s_all // структура для всего вместе
-{
-	t_win			*win; 
-	t_plr			*plr;
-	t_map			*mapa;
-	t_resolution	resolution;
-}		t_all;
-
-
-
-t_all	*init_game(char **argv);
-int		destroy_game(t_all *all, int exit_code);
-char	*make_map(t_list **head, int size);
-int		is_player(t_all *all, char ch);
-int		set_player(t_all *all);
-void	printerror(int code);
-int		buttons(int key, t_all *all);
-int		check_map(char **map);
-int		check_wall(t_all *all, int x, int y);
-
-void draw_map_2d(t_all *all);
-void	draw_player_on_minimap(t_all *all);
-
-void	redisplay(t_all *all);
-
-
-void	set_size_map(char **argv, t_map *map);
-void	set_map(int i, int j, char *line, t_map *mapa);
-t_map	*parser_map(char **argv);
-void ft_mlx_pixel_put(void *mlx, void *win, int x, int y, int color);
-
+void	check_map_error(t_all *all);
+int		check_param(char *line);
+void	draw_1(int i, t_all *all);
+void	draw_rays(t_all *all);
+int		exit_error(int err);
+int		exit_game(int key, t_all *ptr);
+int		get_comma_count(char *str);
+int		iswal(float y, float x, t_all *all);
+void	key_init(t_all *all);
+int		key_press(int key, t_all *all);
+int		key_unpress(int key, t_all *all);
+float	norm_angle(float rayang);
+float	phifagor(float x, float y, float xd, float yd);
+int		read_color(char *str, int *count, t_color *color, char *s);
+int		read_textures(char *str, char *s2, t_all *all);
+int		read_file_map(char *str, t_all *all);
+void	render_3d(t_all *all);// испправить ошиббку
+void	search_player(t_all *all);
+void	set_texture(t_all *all);
+void	set_max_map_line(t_all *all);
+int		set_win_size(char *str, int *count, t_all *all);
+int		update(t_all *all);
 
 #endif

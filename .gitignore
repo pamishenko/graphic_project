@@ -1,7 +1,9 @@
 *.o
-*.d
-minilibx_*
-*.pdf
-a.out
-.DS_Store
 *.a
+*.d
+*.dylib
+cub3d
+*.pdf
+
+.DS_Store
+/venv

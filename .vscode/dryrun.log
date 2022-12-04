@@ -1,0 +1,39 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/pavel/42school_projects/4_round/cub3d'
+mkdir -p objects/
+gcc  -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c src/drawrays_utils.c -o objects/drawrays_utils.o
+mkdir -p objects/
+gcc  -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c src/drawrays.c -o objects/drawrays.o
+mkdir -p objects/
+gcc  -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c src/engine.c -o objects/engine.o
+mkdir -p objects/
+gcc  -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c src/errors.c -o objects/errors.o
+mkdir -p objects/
+gcc  -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c src/key_control.c -o objects/key_control.o
+mkdir -p objects/
+gcc  -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c src/main.c -o objects/main.o
+mkdir -p objects/
+gcc  -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c src/player.c -o objects/player.o
+mkdir -p objects/
+gcc  -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c src/readcolor.c -o objects/readcolor.o
+mkdir -p objects/
+gcc  -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c src/readconfig.c -o objects/readconfig.o
+mkdir -p objects/
+gcc  -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c src/render.c -o objects/render.o
+mkdir -p objects/
+gcc  -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c src/setwinsize.c -o objects/setwinsize.o
+mkdir -p objects/
+gcc  -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c src/utils_math.c -o objects/utils_math.o
+mkdir -p objects/
+gcc  -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c src/utils_textures.c -o objects/utils_textures.o
+mkdir -p objects/
+gcc  -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -c src/utils.c -o objects/utils.o
+make -C ./lib/minilibx_opengl/
+make -C ./lib/libft/
+cp ./lib/minilibx_opengl/libmlx.* ./ 
+cp ./lib/libft/libft.a ./
+cp ./lib/minilibx_opengl/mlx.h ./includes/
+cp ./lib/libft/includes/libft.h ./includes/
+gcc -Wall -Wextra -Werror -g -I ./includes/ objects/drawrays_utils.o objects/drawrays.o objects/engine.o objects/errors.o objects/key_control.o objects/main.o objects/player.o objects/readcolor.o objects/readconfig.o objects/render.o objects/setwinsize.o objects/utils_math.o objects/utils_textures.o objects/utils.o -L ./ -lft -Lmlx -lmlx -framework OpenGL -framework AppKit -o cub3D
+make: Leaving directory `/Users/pavel/42school_projects/4_round/cub3d'
+ 
